@@ -23,7 +23,7 @@ class SortableUploadManyManyTest extends SapphireTest
         TestManyManyDataObject::class
     ];
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -40,13 +40,13 @@ class SortableUploadManyManyTest extends SapphireTest
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         TestAssetStore::reset();
         parent::tearDown();
     }
 
-    public function testExistingSortOrder()
+    public function testExistingSortOrder(): void
     {
         $obj = $this->objFromFixture(TestManyManyDataObject::class, 'obj1');
 
@@ -65,7 +65,7 @@ class SortableUploadManyManyTest extends SapphireTest
         $this->assertEquals(['FileC', 'FileB', 'FileA'], $field->getItems()->column('Title'));
     }
 
-    public function testAddingFilesToNewRecord()
+    public function testAddingFilesToNewRecord(): void
     {
         // Create a new DataObject which will have an unsaved relation
         $obj = TestManyManyDataObject::create();
@@ -108,7 +108,7 @@ class SortableUploadManyManyTest extends SapphireTest
         $this->assertEquals(['FileC', 'FileD', 'FileB', 'FileA'], $field->getItems()->column('Title'));
     }
 
-    public function testAddingFilesWithoutFormSubmission()
+    public function testAddingFilesWithoutFormSubmission(): void
     {
         // Create a new DataObject which will have an unsaved relation
         $obj = TestManyManyDataObject::create();

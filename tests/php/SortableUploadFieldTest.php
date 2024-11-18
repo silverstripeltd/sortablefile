@@ -17,7 +17,7 @@ class SortableUploadFieldTest extends SapphireTest
 {
     protected static $fixture_file = 'SortableUploadFieldTest.yml';
 
-    public function testSchemaDefaults()
+    public function testSchemaDefaults(): void
     {
         $field = SortableUploadField::create('Files');
 
@@ -36,7 +36,7 @@ class SortableUploadFieldTest extends SapphireTest
         $this->assertTrue($data['sortable']);
     }
 
-    public function testSortColumn()
+    public function testSortColumn(): void
     {
         $field = SortableUploadField::create('Files');
 

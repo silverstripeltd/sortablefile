@@ -23,7 +23,7 @@ class SortableUploadManyManyThroughTest extends SapphireTest
         TestManyManyThroughDataObject::class
     ];
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -40,13 +40,13 @@ class SortableUploadManyManyThroughTest extends SapphireTest
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         TestAssetStore::reset();
         parent::tearDown();
     }
 
-    public function testExistingSortOrder()
+    public function testExistingSortOrder(): void
     {
         $obj = $this->objFromFixture(TestManyManyThroughDataObject::class, 'obj1');
 
@@ -59,7 +59,7 @@ class SortableUploadManyManyThroughTest extends SapphireTest
         $this->assertEquals(['FileA', 'FileB', 'FileC', 'FileD'], $field->getItems()->column('Title'));
     }
 
-    public function testAddingFilesToNewRecord()
+    public function testAddingFilesToNewRecord(): void
     {
         // Create a new DataObject which will have an unsaved relation
         $obj = TestManyManyThroughDataObject::create();
@@ -102,7 +102,7 @@ class SortableUploadManyManyThroughTest extends SapphireTest
         $this->assertEquals(['FileC', 'FileD', 'FileB', 'FileA'], $field->getItems()->column('Title'));
     }
 
-    public function testVersionedSortOrder()
+    public function testVersionedSortOrder(): void
     {
         // Get the fixture object and publish it, but without relations!
         $obj = $this->objFromFixture(TestManyManyThroughDataObject::class, 'obj1');
